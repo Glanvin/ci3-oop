@@ -1,0 +1,21 @@
+# Composer dependencies (install these locally on each machine)
+/vendor/
+
+# CodeIgniter log files (except index.html)
+/application/logs/*
+!/application/logs/index.html
+
+# CodeIgniter cache files (except index.html)
+/application/cache/*
+!/application/cache/index.html
+
+# Environment / local config files
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+/.idea/
+/.vscode/
