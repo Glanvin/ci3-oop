@@ -11,7 +11,8 @@
         <li><a class="dropdown-item" href="#">My Profile</a></li>
         <li><a class="dropdown-item" href="#">Account Settings</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
+        <li>
+          <a class="dropdown-item text-danger" href="<?= site_url('auth/signout') ?>">Sign Out</a></li>
       </ul>
     </div>
 
