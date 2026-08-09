@@ -5,10 +5,19 @@ class HomeController extends CI_Controller {
     }
 
     public function index() {
-    	$data['title'] = "Home";
-        $data['currentPage'] = "home";
+    	$data = [
+            'title' => 'Home',
+            'currentPage' => 'home'
+        ];
+        
+        $username = $this->session->userdata('username');
 
-        if (!$this->session->userdata('username')) {
+        if (!$username) {
+            redirect('auth/signin');
+        }
+
+        $result = $this->UserModel->findUser(['username' => $username]);
+        if(!$result || $result['username'] !== $username) {
             redirect('auth/signin');
         }
 
