@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="middlename">Middle Name</label>
-                        <input class="form-control" type="text" id="middlename" name="middlename" autocomplete="off" required>
+                        <input class="form-control" type="text" id="middlename" name="middlename" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
