@@ -53,5 +53,6 @@ $route['default_controller'] = 'homecontroller';
 $route['auth/signin'] = 'signincontroller';
 $route['auth/register'] = 'registrationcontroller';
 $route['auth/signout'] = 'signoutcontroller/signout';
+$route['admin/users'] = 'AdminController';
 $route['404_override'] = 'NotFoundController';
 $route['translate_uri_dashes'] = FALSE;

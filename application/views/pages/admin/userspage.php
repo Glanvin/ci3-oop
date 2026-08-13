@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" name="save" class="btn btn-primary">Add User</button>
+                            <input type="submit" name="add" class="btn btn-primary" value="Add User">
                         </div>
                     </form>
                 </div>

@@ -30,11 +30,12 @@ class AdminController extends CI_Controller {
         $this->load->view("templates/header", $data);
         $this->load->view("templates/navbar", $data);
     	$this->load->view('pages/admin/userspage');
+        $this->load->view('templates/toast');
     	$this->load->view('templates/footer');
     }
 
     public function saveUser() {
-        if($this->input->post('save')) {
+        if($this->input->post('add')) {
             $data = [
                 'username' => $this->input->post('username'),
                 'firstname' => $this->input->post('firstname'),
@@ -47,10 +48,10 @@ class AdminController extends CI_Controller {
             ];
             $result = $this->UserModel->addUser($data);
             if($result) {
-            	$this->notifier->success('User registered successfully! Please sign in.');
+            	$this->notif->success('User registered successfully!');
             	redirect('AdminController');
         	} else {
-            	$this->notifier->error('Failed to register user. Please try again.');
+            	$this->notif->error('Failed to register user. Please try again.');
             	redirect('AdminController');
             }
         }
