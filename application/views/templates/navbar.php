@@ -29,7 +29,7 @@
           <a class="nav-link <?= ($currentPage == 'home') ? 'active' : '' ?>" href="<?= base_url('HomeController') ?>">News</a>
         </li>
         <li class="nav-item <?= ($currentPage == 'inventory') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url('InventoryController') ?>">About Us</a>
+          <a class="nav-link" href="<?= base_url('AdminController') ?>">Admin</a>
         </li>
       </ul>
     </div>
