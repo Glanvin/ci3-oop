@@ -22,6 +22,7 @@ class SignInController extends CI_Controller {
                     'username' => $result['username']
                 ];
                 $this->session->set_userdata($session);
+                $this->notify->success('Operation completed successfully!');
                 redirect('HomeController', 'refresh');
             }else {
                 redirect('SignInController', 'refresh');

@@ -5,6 +5,8 @@ class HomeController extends CI_Controller {
     }
 
     public function index() {
+        $this->notify->success('Operation completed successfully!');
+
     	$data = [
             'title' => 'Home',
             'currentPage' => 'home'
