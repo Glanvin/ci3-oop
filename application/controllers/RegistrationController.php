@@ -7,6 +7,7 @@ class RegistrationController extends CI_Controller {
     public function index() {
         $data['title'] = 'Account Registration';
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/notify');
         $this->load->view('auth/registrationpage');
     }
 
@@ -24,7 +25,11 @@ class RegistrationController extends CI_Controller {
             ];
             $result = $this->UserModel->addUser($data);
             if($result) {
+                $this->notify->success('Successfuly Registered!');
                 redirect('SignInController');
+            }else {
+                $this->notify->error('User cannot be Registered!');
+                redirect('RegistrationController', 'refresh');
             }
         }
     }

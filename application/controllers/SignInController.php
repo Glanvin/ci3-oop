@@ -7,6 +7,7 @@ class SignInController extends CI_Controller {
     public function index() {
         $data['title'] = 'Sign In';
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/notify');
         $this->load->view('auth/signinpage');
     }
 
@@ -22,9 +23,10 @@ class SignInController extends CI_Controller {
                     'username' => $result['username']
                 ];
                 $this->session->set_userdata($session);
-                $this->notify->success('Operation completed successfully!');
+                $this->notify->success("Welcome Back {$this->session->userdata('username')}!");
                 redirect('HomeController', 'refresh');
             }else {
+                $this->notify->error('Invalid Credentials');
                 redirect('SignInController', 'refresh');
             }
         }

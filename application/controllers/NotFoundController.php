@@ -11,6 +11,7 @@ class NotFoundController extends CI_Controller {
         $data['title'] = "Page Not Found";
         $this->load->view('templates/header', $data);
         $this->load->view('errors/custom/error_404');
+        $this->load->view('templates/notify');
         $this->load->view('templates/footer');
     }
 }
