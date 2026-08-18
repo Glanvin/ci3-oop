@@ -26,7 +26,7 @@
           <a class="nav-link <?php if($currentPage == 'home') echo "active"?>" href="<?= base_url('HomeController') ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if($currentPage == "events") echo 'active'?>" href="<?= base_url('HomeController') ?>">Events</a>
+          <a class="nav-link <?php if($currentPage == "events") echo 'active'?>" href="<?= base_url('EventController') ?>">Events</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link <?php if($currentPage == "admin") echo 'active'?>" href="<?= base_url('AdminController') ?>">Admin</a>
