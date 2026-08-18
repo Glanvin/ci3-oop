@@ -23,13 +23,13 @@
     <div class="collapse navbar-collapse order-lg-2" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link <?= ($currentPage == 'home') ? 'active' : '' ?>" href="<?= base_url('HomeController') ?>">Home</a>
+          <a class="nav-link <?php if($currentPage == 'home') echo "active"?>" href="<?= base_url('HomeController') ?>">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= ($currentPage == 'home') ? 'active' : '' ?>" href="<?= base_url('HomeController') ?>">News</a>
+          <a class="nav-link <?php if($currentPage == "events") echo 'active'?>" href="<?= base_url('HomeController') ?>">Events</a>
         </li>
-        <li class="nav-item <?= ($currentPage == 'inventory') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= base_url('AdminController') ?>">Admin</a>
+        <li class="nav-item ">
+          <a class="nav-link <?php if($currentPage == "admin") echo 'active'?>" href="<?= base_url('AdminController') ?>">Admin</a>
         </li>
       </ul>
     </div>
