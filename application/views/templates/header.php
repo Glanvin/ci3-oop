@@ -9,3 +9,4 @@
 	<link rel="shortcut icon" href="<?= base_url('assets/images/logoipsum.svg') ?>" type="image/x-icon">
 </head>
 <body class="d-flex flex-column min-vh-100">
+<?= $this->toastify->render(); ?>

@@ -9,16 +9,16 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label" for="username">Username</label>
-                        <input class="form-control" type="text" id="username" name="username" autocomplete="off" required>
+                        <input class="form-control" type="text" id="username" name="username" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="email">Email</label>
-                        <input class="form-control" type="email" id="email" name="email" autocomplete="off" required>
+                        <input class="form-control" type="email" id="email" name="email" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="firstname">First Name</label>
-                        <input class="form-control" type="text" id="firstname" name="firstname" autocomplete="off" required>
+                        <input class="form-control" type="text" id="firstname" name="firstname" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="middlename">Middle Name</label>
@@ -27,25 +27,25 @@
 
                     <div class="col-md-6">
                         <label class="form-label" for="lastname">Last Name</label>
-                        <input class="form-control" type="text" id="lastname" name="lastname" autocomplete="off" required>
+                        <input class="form-control" type="text" id="lastname" name="lastname" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="contactnumber">Contact Number</label>
-                        <input class="form-control" type="tel" id="contactnumber" name="contactnumber" autocomplete="off" required>
+                        <input class="form-control" type="tel" id="contactnumber" name="contactnumber" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="password">Password</label>
-                        <input class="form-control" type="password" id="password" name="password" required>
+                        <input class="form-control" type="password" id="password" name="password">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="passwordconf">Password Confirm</label>
-                        <input class="form-control" type="password" id="passwordconf" name="passwordconf" required>
+                        <input class="form-control" type="password" id="passwordconf" name="passwordconf">
                     </div>
 
                     <div class="col-12">
                         <label class="form-label" for="address">Address</label>
-                        <input class="form-control" type="text" id="address" name="address" autocomplete="off" required>
+                        <input class="form-control" type="text" id="address" name="address" autocomplete="off">
                     </div>
                 </div>
 

@@ -14,24 +14,49 @@ class RegistrationController extends CI_Controller {
     }
 
     public function registerUser() {
-        if($this->input->post('register')) {
-            $data = [
-                'username' => $this->input->post('username'),
-                'firstname' => $this->input->post('firstname'),
-                'middlename' => $this->input->post('middlename'),
-                'lastname' => $this->input->post('lastname'),
-                'email' => $this->input->post('email'),
-                'contactnumber' => $this->input->post('contactnumber'),
-                'address' => $this->input->post('address'),
-                'password' => $this->input->post('password'),
-            ];
-            $result = $this->UserModel->addUser($data);
-            if($result) {
-                $this->notify->success('Successfuly Registered!');
-                redirect('SignInController');
-            }else {
-                $this->notify->error('User cannot be Registered!');
+        if ($this->input->post('register')) {
+            // Load CodeIgniter form validation library & Toastify
+            $this->load->library('form_validation');
+            $this->load->library('toastify'); // Replace 'toastify' with 'notify' if aliased
+
+            // Validation Rules
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|min_length[3]|max_length[20]|is_unique[users.username]');
+            $this->form_validation->set_rules('firstname', 'First Name', 'required|trim');
+            $this->form_validation->set_rules('middlename', 'Middle Name', 'trim');
+            $this->form_validation->set_rules('lastname', 'Last Name', 'required|trim');
+            $this->form_validation->set_rules('email', 'Email Address', 'required|trim|valid_email|is_unique[users.email]');
+            $this->form_validation->set_rules('contactnumber', 'Contact Number', 'required|trim|numeric|min_length[11]|max_length[11]');
+            $this->form_validation->set_rules('address', 'Address', 'required|trim');
+            $this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
+
+            if ($this->form_validation->run() === FALSE) {
+                // Strip HTML tags so htmlspecialchars() in Toastify::render() outputs clean text
+                $errorMessage = strip_tags(validation_errors('', ' '));
+
+                // Pass error string to Toastify error flashdata
+                $this->toastify->error($errorMessage);
                 redirect('RegistrationController', 'refresh');
+            } else {
+                $data = [
+                    'username'      => $this->input->post('username'),
+                    'firstname'     => $this->input->post('firstname'),
+                    'middlename'    => $this->input->post('middlename'),
+                    'lastname'      => $this->input->post('lastname'),
+                    'email'         => $this->input->post('email'),
+                    'contactnumber' => $this->input->post('contactnumber'),
+                    'address'       => $this->input->post('address'),
+                    'password'      => $this->input->post('password'),
+                ];
+
+                $result = $this->UserModel->addUser($data);
+
+                if ($result) {
+                    $this->toastify->success('Successfully Registered!');
+                    redirect('SignInController');
+                } else {
+                    $this->toastify->error('User cannot be Registered!');
+                    redirect('RegistrationController', 'refresh');
+                }
             }
         }
     }

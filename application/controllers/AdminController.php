@@ -48,10 +48,10 @@ class AdminController extends CI_Controller {
             ];
             $result = $this->UserModel->addUser($data);
             if($result) {
-            	$this->notif->success('User registered successfully!');
+            	$this->notify->success('User registered successfully!');
             	redirect('AdminController');
         	} else {
-            	$this->notif->error('Failed to register user. Please try again.');
+            	$this->notify->error('Failed to register user. Please try again.');
             	redirect('AdminController');
             }
         }
