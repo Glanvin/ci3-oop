@@ -21,14 +21,21 @@ class SignInController extends CI_Controller {
             ];
             $result = $this->UserModel->findUser($data);
             if($result) {
-                $session = [
-                    'username' => $result['username']
-                ];
-                $this->session->set_userdata($session);
-                $this->notify->success("Welcome Back {$this->session->userdata('username')}!");
-                redirect('HomeController', 'refresh');
+                if($result['password'] == $this->input->post('password')) {
+                    $session = [
+                        'username' => $result['username'],
+                        'role' => $result['role'],
+
+                    ];
+                    $this->session->set_userdata($session);
+                    $this->notify->success("Welcome Back {$this->session->userdata('username')}!");
+                    redirect('HomeController', 'refresh');
+                }else {
+                    $this->notify->error('Invalid Password');
+                    redirect('SignInController', 'refresh'); 
+                }
             }else {
-                $this->notify->error('Invalid Credentials');
+                $this->notify->error('Username does not exist!');
                 redirect('SignInController', 'refresh');
             }
         }
