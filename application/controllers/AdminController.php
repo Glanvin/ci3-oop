@@ -34,7 +34,7 @@ class AdminController extends CI_Controller {
         
         $this->load->view("templates/header", $data);
         $this->load->view("templates/navbar", $data);
-        // $this->load->view('pages/admin/userspage');
+        $this->load->view('pages/admin/quickpage');
         $this->load->view('templates/toast');
         $this->load->view('templates/footer');
     }
@@ -58,7 +58,7 @@ class AdminController extends CI_Controller {
             redirect('auth/signin');
         }
 
-        if($role != 'user') {
+        if($role != 'admin') {
             redirect('pages/homepage');
         }
 
@@ -89,11 +89,12 @@ class AdminController extends CI_Controller {
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 
             if ($this->form_validation->run() === FALSE) {
-                $errorMessage = strip_tags(validation_errors('', ' '));
+                $errorMessage = validation_errors('<li>', '*</li>');
+
                 
                 // Pass clean error string to notify flashdata
-                $this->notify->error($errorMessage);
-                redirect('AdminController');
+                $this->toastify->error("<ul class='mb-0 ps-3 list-unstyled'>{$errorMessage}</ul>");
+                $this->index();// To save inputted data
             } else {
                 
                 $data = [

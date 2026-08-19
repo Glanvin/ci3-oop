@@ -9,29 +9,29 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label" for="username">Username</label>
-                        <input class="form-control" type="text" id="username" name="username" autocomplete="off">
+                        <input class="form-control" type="text" id="username" name="username" value="<?= set_value('username')?>" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="email">Email</label>
-                        <input class="form-control" type="email" id="email" name="email" autocomplete="off">
+                        <input class="form-control" type="email" id="email" name="email" value="<?= set_value('email')?>" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="firstname">First Name</label>
-                        <input class="form-control" type="text" id="firstname" name="firstname" autocomplete="off">
+                        <input class="form-control" type="text" id="firstname" name="firstname" value="<?= set_value('firstname')?>" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="middlename">Middle Name</label>
-                        <input class="form-control" type="text" id="middlename" name="middlename" autocomplete="off">
+                        <input class="form-control" type="text" id="middlename" name="middlename" value="<?= set_value('middlename')?>" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-label" for="lastname">Last Name</label>
-                        <input class="form-control" type="text" id="lastname" name="lastname" autocomplete="off">
+                        <input class="form-control" type="text" id="lastname" name="lastname" value="<?= set_value('lastname')?>" autocomplete="off">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label" for="contactnumber">Contact Number</label>
-                        <input class="form-control" type="tel" id="contactnumber" name="contactnumber" autocomplete="off">
+                        <input class="form-control" type="tel" id="contactnumber" name="contactnumber" value="<?= set_value('contactnumer')?>" autocomplete="off">
                     </div>
 
                     <div class="col-md-6">
@@ -45,7 +45,7 @@
 
                     <div class="col-12">
                         <label class="form-label" for="address">Address</label>
-                        <input class="form-control" type="text" id="address" name="address" autocomplete="off">
+                        <input class="form-control" type="text" id="address" name="address" value="<?= set_value('address')?>" autocomplete="off">
                     </div>
                 </div>
 
@@ -63,3 +63,4 @@
         </div>
     </div>
 </div>
+<script src="<?= base_url('assets/js/bootstrap.bundle.min.js')?>"></script>

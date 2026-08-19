@@ -8,7 +8,7 @@ class SignOutController extends CI_Controller {
 
     public function signOut() {
         $this->session->set_userdata(['username' => '']);
-        $this->notify->success('User Signed Out');
+        $this->toastify->success('User Signed Out');
         redirect('auth/signin');
     }
 }

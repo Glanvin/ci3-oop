@@ -46,10 +46,10 @@ class Toastify {
             $message = $this->CI->session->flashdata($key);
             if ($message) {
                 $toasts .= '
-                <div class="toast align-items-center ' . $bsClass . ' border-0 fade show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast align-items-center ' . $bsClass . ' border-0 fade show m-3" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body">
-                            ' . htmlspecialchars($message, ENT_QUOTES, 'UTF-8') . '
+                            ' . $message . '
                         </div>
                         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>

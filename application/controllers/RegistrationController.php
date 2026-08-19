@@ -28,18 +28,18 @@ class RegistrationController extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE) {
                 // Strip HTML tags so htmlspecialchars() in Toastify render() outputs clean text
-                $errorMessage = strip_tags(validation_errors('', ' '));
+                $errorMessage = validation_errors('<li>', '*</li>');
 
                 // Pass error string to Toastify error flashdata
-                $this->toastify->error($errorMessage);
-                redirect('RegistrationController', 'refresh');
+                $this->toastify->error("<ul class='mb-0 ps-3 list-unstyled'>{$errorMessage}</ul>");
+                $this->index();// To save inputted data
             } else {
                 $data = [
-                    'username' => $this->input->post('username'),
-                    'firstname' => $this->input->post('firstname'),
-                    'middlename' => $this->input->post('middlename'),
-                    'lastname' => $this->input->post('lastname'),
-                    'email' => $this->input->post('email'),
+                    'username' => strtolower($this->input->post('username')),
+                    'firstname' => ucfirst($this->input->post('firstname')),
+                    'middlename' => ucfirst($this->input->post('middlename')),
+                    'lastname' => ucfirst($this->input->post('lastname')),
+                    'email' => lcfirst($this->input->post('email')),
                     'contactnumber' => $this->input->post('contactnumber'),
                     'address' => $this->input->post('address'),
                     'password' => $this->input->post('password'),
