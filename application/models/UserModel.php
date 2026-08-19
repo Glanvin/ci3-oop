@@ -19,4 +19,12 @@ class UserModel extends CI_Model {
         }
         return false;
     }
+
+    public function editUser($id, $data) {
+        return $this->db->update('tbl_users', $data, ['id' => $id]);
+    }
+
+    public function deleteUser($id) {
+        return $this->db->delete('tbl_users', ['id' => $id]);
+    }
 }
