@@ -13,14 +13,19 @@ class AdminController extends CI_Controller {
         ];
         
         $username = $this->session->userdata('username');
+        $role = $this->session->userdata('role');
 
-        if (!$username) {
+        if (!$username || !$role) {
             redirect('auth/signin');
         }
 
         $result = $this->UserModel->findUser(['username' => $username]);
         if(!$result || $result['username'] !== $username) {
             redirect('auth/signin');
+        }
+
+        if($role != 'admin') {
+            redirect('HomeController');
         }
 
         if(!empty($this->session->userdata('username'))) {
@@ -42,14 +47,19 @@ class AdminController extends CI_Controller {
         ];
         
         $username = $this->session->userdata('username');
+        $role = $this->session->userdata('role');
 
-        if (!$username) {
+        if (!$username || !$role) {
             redirect('auth/signin');
         }
 
         $result = $this->UserModel->findUser(['username' => $username]);
         if(!$result || $result['username'] !== $username) {
             redirect('auth/signin');
+        }
+
+        if($role != 'user') {
+            redirect('pages/homepage');
         }
 
         if(!empty($this->session->userdata('username'))) {

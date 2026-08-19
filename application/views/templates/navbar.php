@@ -28,9 +28,11 @@
         <li class="nav-item">
           <a class="nav-link <?php if($currentPage == "events") echo 'active'?>" href="<?= base_url('EventController') ?>">Events</a>
         </li>
+        <?php if($this->session->userdata('role') == 'admin'):?>
         <li class="nav-item ">
           <a class="nav-link <?php if($currentPage == "admin") echo 'active'?>" href="<?= base_url('AdminController') ?>">Admin</a>
         </li>
+        <?php endif?>
       </ul>
     </div>
 
