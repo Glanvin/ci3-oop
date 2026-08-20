@@ -27,7 +27,6 @@ class RegistrationController extends CI_Controller {
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
 
             if ($this->form_validation->run() === FALSE) {
-                // Strip HTML tags so htmlspecialchars() in Toastify render() outputs clean text
                 $errorMessage = validation_errors('<li>', '*</li>');
 
                 // Pass error string to Toastify error flashdata

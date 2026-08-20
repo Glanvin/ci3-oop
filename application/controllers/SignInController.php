@@ -28,14 +28,14 @@ class SignInController extends CI_Controller {
 
                     ];
                     $this->session->set_userdata($session);
-                    $this->notify->success("Welcome Back {$this->session->userdata('username')}!");
+                    $this->toastify->success("Welcome Back {$this->session->userdata('username')}!");
                     redirect('HomeController', 'refresh');
                 }else {
-                    $this->notify->error('Invalid Password');
+                    $this->toastify->error('Invalid Password');
                     redirect('SignInController', 'refresh'); 
                 }
             }else {
-                $this->notify->error('Username does not exist!');
+                $this->toastify->error('Username does not exist!');
                 redirect('SignInController', 'refresh');
             }
         }

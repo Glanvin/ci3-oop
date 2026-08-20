@@ -7,11 +7,6 @@ class HomeController extends CI_Controller {
     }
 
     public function index() {
-    	$data = [
-            'title' => 'Home',
-            'currentPage' => 'home'
-        ];
-        
         $username = $this->session->userdata('username');
 
         if (!$username) {
@@ -23,14 +18,18 @@ class HomeController extends CI_Controller {
             redirect('auth/signin');
         }
 
-        if(!empty($this->session->userdata('username'))) {
-            $data['username'] = $this->session->userdata('username');
-        }
+        $data = [
+            'title' => 'Home',
+            'currentPage' => 'home',
+            'username' => $username,
+            'events' => $this->EventModel->get_upcoming_events()
+        ];
         
         $this->load->view("templates/header", $data);
         $this->load->view("templates/navbar", $data);
-    	$this->load->view('pages/homepage');
+        $this->load->view('pages/homepage', $data);
+        $this->load->view('modals/attendModal', $data);
         $this->load->view('templates/notify');
-    	$this->load->view('templates/footer');
+        $this->load->view('templates/footer');
     }
 }
