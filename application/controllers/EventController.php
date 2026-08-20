@@ -48,7 +48,7 @@ class EventController extends CI_Controller {
     	$this->load->view('templates/footer');
 	}
 
- public function add_event() {
+    public function add_event() {
         $role = $this->session->userdata('role');
         if ($role !== 'admin' && $role !== 'officer') {
             $this->toastify->error('Unauthorized access.');
@@ -56,7 +56,9 @@ class EventController extends CI_Controller {
         }
 
         // 1. Set Form Validation Rules
-        $this->form_validation->set_rules('name', 'Event Name', 'required|trim');
+        $this->form_validation->set_rules('name', 'Event Name', 'required|trim|is_unique[tbl_events.name]', [
+            'is_unique' => 'An event with this name already exists.'
+        ]);
         $this->form_validation->set_rules('start_date', 'Start Date', 'required');
         $this->form_validation->set_rules('end_date', 'End Date', 'required');
         $this->form_validation->set_rules('start_time', 'Start Time', 'required');
